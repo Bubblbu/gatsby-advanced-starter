@@ -1,6 +1,7 @@
 import React from "react";
 import Helmet from "react-helmet";
 import config from "../../data/SiteConfig";
+import Footer from "../../src/components/Footer/Footer"
 import "./index.css";
 
 export default class MainLayout extends React.Component {
@@ -46,7 +47,14 @@ export default class MainLayout extends React.Component {
           <title>{`${config.siteTitle} |  ${this.getLocalTitle()}`}</title>
           <meta name="description" content={config.siteDescription} />
         </Helmet>
+
+        <h1>The Open Knowledge Maps Browser</h1>
+        <p>It is a really great browser. Look at all these great maps. Pls upvote.</p>
+        
+
         {children()}
+
+        <Footer />
       </div>
     );
   }

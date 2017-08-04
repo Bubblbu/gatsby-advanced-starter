@@ -17,6 +17,12 @@ module.exports = {
     }
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography.js`,
+      },
+    },
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-source-filesystem",
@@ -140,7 +146,6 @@ module.exports = {
                     fields { slug }
                     frontmatter {
                       title
-                      cover
                       date
                       category
                       tags

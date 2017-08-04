@@ -1,16 +1,22 @@
-import React, { Component } from "react";
-import "./UserLinks.css";
+import React, { Component } from 'react';
+import './UserLinks.css';
 
 class UserLinks extends Component {
   getLinkElements() {
     const { userLinks } = this.props.config;
     const { labeled } = this.props;
     return userLinks.map(link =>
-      <button key={link.label} href={link.url}>
-        {labeled ? link.label : ""}
-      </button>
-    );
+      (
+        <div key={link.label}>
+          <a href={link.url}>
+            <i className={link.iconClassName} />
+            {labeled ? `${link.label}` : ''}
+          </a>
+          &nbsp;&nbsp;&nbsp;
+        </div>
+      ));
   }
+  
   render() {
     const { userLinks } = this.props.config;
     if (!userLinks) {
@@ -18,7 +24,9 @@ class UserLinks extends Component {
     }
     return (
       <div className="user-links">
-        {this.getLinkElements()}
+        {
+          this.getLinkElements()
+        }
       </div>
     );
   }

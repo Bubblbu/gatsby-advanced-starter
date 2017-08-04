@@ -12,6 +12,7 @@ export default class CategoryTemplate extends React.Component {
         <Helmet
           title={`Posts in category "${category}" | ${config.siteTitle}`}
         />
+        <h2>We found {postEdges.length} {postEdges.length == 1 ? 'map' : 'maps'}  for cat:{category}</h2>
         <PostListing postEdges={postEdges} />
       </div>
     );
@@ -37,8 +38,12 @@ export const pageQuery = graphql`
           frontmatter {
             title
             tags
-            cover
+            id
+            query
+            service
             date
+            description
+            category
           }
         }
       }

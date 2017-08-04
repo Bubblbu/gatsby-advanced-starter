@@ -10,6 +10,7 @@ export default class TagTemplate extends React.Component {
     return (
       <div className="tag-container">
         <Helmet title={`Posts tagged as "${tag}" | ${config.siteTitle}`} />
+        <h2>We found {postEdges.length} {postEdges.length == 1 ? 'map' : 'maps'}  for tag:{tag}</h2>
         <PostListing postEdges={postEdges} />
       </div>
     );
@@ -35,8 +36,12 @@ export const pageQuery = graphql`
           frontmatter {
             title
             tags
-            cover
+            id
+            query
+            service
             date
+            description
+            category
           }
         }
       }
